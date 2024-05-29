@@ -23,12 +23,13 @@ for (var contador = 0;contador <= pacientes.length; contador++) {
         console.log("Peso inválido");
         pesoValido = false;
         tdImc.textContent = 'Peso Inválido!';
-        paciente.style.color = "red";
+        paciente.classList.add("paciente-invalido");
     }
     if (altura <= 0 || altura >= 3.00 ){
         console.log("Altura inválida");
         pesoValido = false;
         tdImc.textContent = 'Altura Inválido!';
+        paciente.classList.add("paciente-invalido");
     }
 
     if (alturaValida && pesoValido) {
