@@ -4,7 +4,7 @@ titulo.textContent = 'Lucas Nutricionista';
 ////document query selector all
 var pacientes = (document.querySelectorAll('.paciente'));
 for (var contador = 0;contador < pacientes.length; contador++) {
-    console.log(pacientes[contador]);
+    //console.log(pacientes[contador]);
 
     var paciente = pacientes[contador];
     //seleciona peso
@@ -36,4 +36,11 @@ for (var contador = 0;contador < pacientes.length; contador++) {
         var imc = peso / (altura * altura);
         tdImc.textContent = imc.toFixed(2);  
     }
-    }
+}
+
+var botaoAdicionar = document.querySelector('#adicionar-paciente');
+
+botaoAdicionar.addEventListener("click", function (){
+    console.log("Oi, cliquei no botão.")
+});
+
