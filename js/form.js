@@ -8,8 +8,11 @@ botaoAdicionar.addEventListener("click", function(event){
     //cria atr e td do paciente
     var pacienteTr = montaTr(paciente);
 
-    if(!validaPaciente(paciente)){
-        console.log("Paciente inválido");
+    var erro = validaPaciente(paciente);
+
+    if(erro.length > 0){
+        var mensagemErro = document.querySelector("#mensagem-erro");
+        mensagemErro.textContent = erro;
         return;
     }
 
@@ -55,9 +58,9 @@ function montaTd(dado, classe) {
 
 function validaPaciente(paciente) {
     if (validaPeso(paciente.peso) && validaAltura(paciente.altura)){
-        return true;
+        return "";
     }else{
-        return false;
+        return "O Peso é inválido";
     }
 
-    }
+}
