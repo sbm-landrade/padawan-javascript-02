@@ -48,9 +48,9 @@ function validaAltura(altura) {
 
 function validaPeso(peso) {
     if (peso >= 0 && peso < 1000) {
-     return true; 
+    return true; 
     }else{
-     return false;
+    return false;
     }
 }
 
