@@ -8,11 +8,11 @@ botaoAdicionar.addEventListener("click", function(event){
     //cria atr e td do paciente
     var pacienteTr = montaTr(paciente);
 
-    var erro = validaPaciente(paciente);
+    var erros = validaPaciente(paciente);
 
-    if(erro.length > 0){
+    if (erros.length > 0){
         var mensagemErro = document.querySelector("#mensagem-erro");
-        mensagemErro.textContent = erro;
+        mensagemErro.textContent = erros;
         return;
     }
 
@@ -56,11 +56,20 @@ function montaTd(dado, classe) {
     return td;
 }
 
-function validaPaciente(paciente) {
-    if (validaPeso(paciente.peso) && validaAltura(paciente.altura)){
-        return "";
-    }else{
-        return "O Peso é inválido";
-    }
+function validaPaciente(paciente){
 
+    var erros = [];
+
+    if (!validaPeso(paciente.peso) && !validaAltura(paciente.altura)) {
+        erros.push("Peso e Altura são inválidos");
+    } else {
+        if (!validaPeso(paciente.peso)) {
+            erros.push("Peso é inválido");
+        }
+
+        if (!validaAltura(paciente.altura)) {
+            erros.push("Altura é inválida");
+        }
+    }
+    return erros;
 }
